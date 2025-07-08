@@ -1,31 +1,19 @@
-# smart_chatbot.py
-def get_bot_response(message):
-    message = message.lower().strip()
-
-    greetings = ["hi", "hello", "hey", "greetings"]
-    farewells = ["bye", "goodbye", "see you", "later"]
-    name_queries = ["your name", "who are you", "what's your name"]
-
-    if any(greet in message for greet in greetings):
-        return "Hello! I'm ChatNova, your friendly assistant."
-    elif any(name in message for name in name_queries):
-        return "You can call me ChatNova. I'm here to chat and help!"
-    elif any(farewell in message for farewell in farewells):
-        return "Farewell! Catch you later."
-    elif "how are you" in message:
-        return "I'm all circuits and smiles! How about you?"
-    elif "joke" in message:
-        return "Why don't programmers like nature? It has too many bugs."
+# chatbot.py
+def chatbot_response(user_input):
+    user_input = user_input.lower()
+    if "hello" in user_input or "hi" in user_input:
+        return "Hi there! How can I help you today?"
+    elif "your name" in user_input:
+        return "I'm CodBot, your virtual assistant."
+    elif "bye" in user_input:
+        return "Goodbye! Have a great day."
     else:
-        return "Hmm... I didn’t get that. Try asking me something else!"
-
-# Chat loop
-print("Start chatting with ChatNova! Type 'quit' or 'exit' to stop.\n")
+        return "Sorry, I didn't understand that. Can you rephrase?"
 
 while True:
     user_input = input("You: ")
     if user_input.lower() in ["exit", "quit"]:
-        print("ChatNova: Chat ended. Have a great day!")
+        print("Bot: Goodbye!")
         break
-    bot_reply = get_bot_response(user_input)
-    print("ChatNova:", bot_reply)
+    response = chatbot_response(user_input)
+    print("Bot:", response)
